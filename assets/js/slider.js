@@ -89,7 +89,7 @@ jQuery(document).ready(function(){
                     activeDot.next().addClass('active');
                 }
 
-                if(!mySliderItems.children().last().hasClass('active')){
+                if(!(mySliderItems.children().last().hasClass('active'))){
                     console.log('uwaga! ostatni element!');
                     slideItem();
                     slideDot();
@@ -114,7 +114,7 @@ jQuery(document).ready(function(){
                     activeDot.prev().addClass('active');
                 }
 
-                if(!mySliderItems.children().first().hasClass('active')){
+                if(!(mySliderItems.children().first().hasClass('active'))){
                     console.log('uwaga! pierwszy element!');
                     slideItem();
                     slideDot();
