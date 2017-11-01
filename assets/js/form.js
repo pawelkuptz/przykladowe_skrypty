@@ -9,6 +9,8 @@ jQuery(document).ready(function(){
     // var pattern = new RegExp(/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d][A-Za-z\d!@#$%^&*()_+]{7,19}$/);
     var pattern = new RegExp(/^(?=.*[0-9])(?=.*[A-Z])(?=.*[#$%^]){6,}/);
     var getFieldPassword;
+    var inputType = $('#checkType');
+    var resultsType = $('#resultsType');
 
     function checkPassword(){
 
@@ -44,15 +46,39 @@ jQuery(document).ready(function(){
         }
     }
 
+    function checkType(){
+        inputType.on('change',function(){
+            var $this = $(this);
+            var valueField = $this.val();
 
+            var patt = new RegExp(/^[0-9]*$/); //only numbers
+            var isNumber = patt.test(valueField);
+
+            if(isNumber){
+                resultsType.text('to jest liczba');
+            }
+            else if (typeof(valueField) == 'string'){
+                resultsType.text('to jest string');
+            }
+        })
+    }
+
+    checkType();
+
+
+    var person = ['Marcin','Paweł','Ania'];
+    console.log(person.sort());
+
+    for(var i = 0; i < person.length; i++){
+
+        console.log(i+1+': '+ person[i]);
+    }
 
     form.submit(function(e){
         e.preventDefault();
 
-
         checkPassword();
         checkCheckbox();
-
 
     });
 
